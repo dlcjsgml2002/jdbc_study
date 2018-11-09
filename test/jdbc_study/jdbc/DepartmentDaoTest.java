@@ -52,5 +52,20 @@ public class DepartmentDaoTest {
 			}
 		}
 	}
+	
+	@Test
+	public void testDeleteDepartment() {
+		
+	}
+	
+	@Test
+	public void testUpdateDepartment() {
+		
+	}
+	
+	@Test
+	public void testSelectDepartmentByNo() {
+		
+	}
 
 }
