@@ -23,6 +23,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		try (Connection conn = MySQLJdbcUtil.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
+			LOG.debug(pstmt);
 			while (rs.next()) { // select 기준 (sql line:22)**
 				list.add(getDepartment(rs));
 			}
