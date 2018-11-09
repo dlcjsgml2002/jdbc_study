@@ -1,6 +1,9 @@
 package jdbc_study.jdbc;
 
+import java.sql.SQLException;
 import java.util.List;
+
+import javax.swing.JOptionPane;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -33,6 +36,21 @@ public class DepartmentDaoTest {
 			MySQLJdbcUtilTest.LOG.debug(dept);
 		}
 		Assert.assertNotEquals(0, list.size()); // (기대값, 사이즈): 0이 아니라면
+	}
+	
+	@Test
+	public void testInsertDepartment() {
+		Department newDept = new Department(4, "자바개발부서", 15);
+		try {
+			int res = dao.insertDepartment(newDept);
+			Assert.assertEquals(1, res);
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode());
+			e.printStackTrace();
+			if(e.getErrorCode()==1062) {
+				JOptionPane.showMessageDialog(null, "해당 부서는 이미 존재합니다.");
+			}
+		}
 	}
 
 }

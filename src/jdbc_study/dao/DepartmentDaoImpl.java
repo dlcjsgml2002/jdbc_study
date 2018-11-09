@@ -40,4 +40,19 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		return new Department(deptNo, deptName, floor);
 	}
 
+	@Override
+	public int insertDepartment(Department department) throws SQLException {
+		String sql = "insert into department values(?,?,?)";
+		int res = 0;
+		try (Connection conn = MySQLJdbcUtil.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setInt(1, department.getDeptNo());
+			pstmt.setString(2, department.getDeptName());
+			pstmt.setInt(3, department.getFloor());
+			LOG.debug(pstmt);
+			res = pstmt.executeUpdate();
+		}
+		return res;
+	}
+
 }
