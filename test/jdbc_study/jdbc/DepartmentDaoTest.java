@@ -8,12 +8,15 @@ import javax.swing.JOptionPane;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import jdbc_study.dao.DepartmentDao;
 import jdbc_study.dao.DepartmentDaoImpl;
 import jdbc_study.dto.Department;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DepartmentDaoTest {
 	static DepartmentDao dao;
 
@@ -30,7 +33,7 @@ public class DepartmentDaoTest {
 	}
 
 	@Test
-	public void testSelectDepartmentByAll() {
+	public void test01SelectDepartmentByAll() {
 		List<Department> list = dao.selectDepartmentByAll();
 		for (Department dept : list) {
 			MySQLJdbcUtilTest.LOG.debug(dept);
@@ -39,7 +42,7 @@ public class DepartmentDaoTest {
 	}
 	
 	@Test
-	public void testInsertDepartment() {
+	public void test02InsertDepartment() {
 		Department newDept = new Department(4, "자바개발부서", 15);
 		try {
 			int res = dao.insertDepartment(newDept);
@@ -54,18 +57,37 @@ public class DepartmentDaoTest {
 	}
 	
 	@Test
-	public void testDeleteDepartment() {
-		
+	public void test04DeleteDepartment() {
+		Department newDept = new Department(4);
+		try {
+			int res = dao.delelteDepartment(newDept);
+			System.out.println(res);
+			Assert.assertEquals(1, res);
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode());
+		}
 	}
 	
 	@Test
-	public void testUpdateDepartment() {
-		
+	public void test03UpdateDepartment() {
+		Department newDept = new Department(4, "자브아아아앙", 10);
+		try {
+			int res = dao.updateDepartment(newDept);
+			Assert.assertEquals(1, res);
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode());
+		}
 	}
 	
 	@Test
-	public void testSelectDepartmentByNo() {
-		
+	public void test05SelectDepartmentByNo() {
+		Department newDept = new Department(1);
+		try {
+			Department res = dao.selectDepartmentByNo(newDept);
+			JOptionPane.showMessageDialog(null, res);
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "검색 실패");
+		}
 	}
 
 }
