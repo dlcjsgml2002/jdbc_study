@@ -56,20 +56,20 @@ public class UserDetailDaoTest {
 	}
 
 	private byte[] getImage() {
-	      byte[] pic = null;
-	      String imgPath = System.getProperty("user.dir")+ 
-	                       System.getProperty("file.separator")+ "images" +System.getProperty("file.separator")+"lyu.jpg";
-	      File file = new File(imgPath);
-	      try (InputStream is = new FileInputStream(file)){
-	         pic = new byte[is.available()];
-	         is.read(pic);
-	      } catch (FileNotFoundException e) {
-	         e.printStackTrace();
-	      } catch (IOException e) {
-	         e.printStackTrace();
-	      }
-	      return pic;
-	   }
+		byte[] pic = null;
+		String imgPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
+				+ System.getProperty("file.separator") + "lyu.jpg";
+		File file = new File(imgPath);
+		try (InputStream is = new FileInputStream(file)) {
+			pic = new byte[is.available()];
+			is.read(pic);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return pic;
+	}
 
 	@Test
 	public void test2GetPictureByUserDetail() throws FileNotFoundException, SQLException, IOException {
@@ -92,10 +92,10 @@ public class UserDetailDaoTest {
 		Assert.assertEquals(userDetail.getId(), searchUser.getId());
 	}
 
-/*	@Test
+ㄹ	@Test
 	public void test4DeleteUserDetail() throws FileNotFoundException, SQLException, IOException {
 		UserDetail userDetail = new UserDetail(1);
 		int result = dao.deleteUserDetail(userDetail);
 		Assert.assertEquals(1, result);
-	}*/
+	}
 }

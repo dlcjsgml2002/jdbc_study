@@ -48,7 +48,7 @@ public class EmployeeDaoTest {
 		Assert.assertNotNull(lists);
 	}
 
-	@Test/*(expected = SQLException.class)*/
+	@Test /* (expected = SQLException.class) */
 	public void test02InsertEmployee() throws SQLException {
 		Employee newEmp = new Employee(1005, "서현진", "사원", new Employee(1003), 1500000, new Department(1));
 		int result = dao.insertEmployee(newEmp);

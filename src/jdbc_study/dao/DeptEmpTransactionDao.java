@@ -5,5 +5,6 @@ import jdbc_study.dto.Employee;
 
 public interface DeptEmpTransactionDao {
 	int transactionInsertEmployeeAndDepartment(Employee emp, Department dept);
+
 	int transactionInsertEmployeeAndDepartmentApi(Employee emp, Department dept);
 }

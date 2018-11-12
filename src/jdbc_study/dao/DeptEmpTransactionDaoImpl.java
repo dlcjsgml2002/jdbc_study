@@ -75,7 +75,7 @@ public class DeptEmpTransactionDaoImpl implements DeptEmpTransactionDao {
 		EmployeeDao empDao = new EmployeeDaoImpl();
 		Connection conn = null;
 		int result = 0;
-		try{
+		try {
 			conn = MySQLJdbcUtil.getConnection();
 			conn.setAutoCommit(false);
 			result += deptDao.insertDepartment(dept);
@@ -91,14 +91,15 @@ public class DeptEmpTransactionDaoImpl implements DeptEmpTransactionDao {
 			} catch (SQLException ex) {
 				LogUtil.prnLog(ex.getMessage());
 			}
-		}finally {
+		} finally {
 			try {
-				if (conn != null) conn.close();
+				if (conn != null)
+					conn.close();
 			} catch (SQLException ex) {
 				LogUtil.prnLog(ex.getMessage());
 			}
 		}
-		
+
 		return result;
 	}
 

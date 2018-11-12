@@ -48,5 +48,4 @@ public class Department {
 		return String.format("Department [deptNo=%s, deptName=%s, floor=%s]", deptNo, deptName, floor);
 	}
 
-	
 }

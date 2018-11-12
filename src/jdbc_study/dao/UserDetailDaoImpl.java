@@ -63,32 +63,32 @@ public class UserDetailDaoImpl implements UserDetailDao {
 	}
 
 	private UserDetail getUserDetail(ResultSet rs) throws SQLException {
-		      int id = rs.getInt("id");
-		      String name = rs.getString("name");
-		      Gender gender = rs.getInt("gender")==0?Gender.FEMALE:Gender.MALE;
-		      String bio = rs.getString("bio");
-		      return new UserDetail(id, name, gender, bio);
-		   }
+		int id = rs.getInt("id");
+		String name = rs.getString("name");
+		Gender gender = rs.getInt("gender") == 0 ? Gender.FEMALE : Gender.MALE;
+		String bio = rs.getString("bio");
+		return new UserDetail(id, name, gender, bio);
+	}
 
 	@Override
-	   public String getPictureByUserDetail(UserDetail userDetail, String filePath) throws SQLException, FileNotFoundException, IOException {
-	      LogUtil.prnLog("getPictureByUserDetail()");
-	      String sql = "select pic from user_detail where id = ?";
-	      try (Connection conn = MySQLJdbcUtil.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	         pstmt.setInt(1, userDetail.getId());
-	         try (ResultSet rs = pstmt.executeQuery(); FileOutputStream output = new FileOutputStream(filePath)) {
-	            if (rs.next()) {
-	               try (InputStream input = rs.getBinaryStream("pic")){
-	                  byte[] buffer = new byte[1024];
-	                  while (input.read(buffer) > 0) {
-	                     output.write(buffer);
-	                  }
-	               }
-	            }
-	         }
-	      }
-	      return filePath;
-	   }
-
+	public String getPictureByUserDetail(UserDetail userDetail, String filePath)
+			throws SQLException, FileNotFoundException, IOException {
+		LogUtil.prnLog("getPictureByUserDetail()");
+		String sql = "select pic from user_detail where id = ?";
+		try (Connection conn = MySQLJdbcUtil.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, userDetail.getId());
+			try (ResultSet rs = pstmt.executeQuery(); FileOutputStream output = new FileOutputStream(filePath)) {
+				if (rs.next()) {
+					try (InputStream input = rs.getBinaryStream("pic")) {
+						byte[] buffer = new byte[1024];
+						while (input.read(buffer) > 0) {
+							output.write(buffer);
+						}
+					}
+				}
+			}
+		}
+		return filePath;
+	}
 
 }

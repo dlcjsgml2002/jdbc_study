@@ -13,6 +13,7 @@ public interface UserDetailDao {
 
 	UserDetail selectUserDetail(UserDetail userDetail) throws SQLException;
 
-	String getPictureByUserDetail(UserDetail userDetail, String filePath) throws SQLException, FileNotFoundException, IOException;
+	String getPictureByUserDetail(UserDetail userDetail, String filePath)
+			throws SQLException, FileNotFoundException, IOException;
 
 }

@@ -75,9 +75,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return String.format("Employee [%s %s %s %s %s %s]", 
-				empNo,empName, title, manager.getEmpNo(), salary, dept.getDeptNo());
+		return String.format("Employee [%s %s %s %s %s %s]", empNo, empName, title, manager.getEmpNo(), salary,
+				dept.getDeptNo());
 	}
 
-	
 }

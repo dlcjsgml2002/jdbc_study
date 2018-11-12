@@ -10,14 +10,14 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import jdbc_study_teacher.dao.DepartmentDao;
-import jdbc_study_teacher.dao.DepartmentDaoImpl;
-import jdbc_study_teacher.dao.DeptEmpTransactionDao;
-import jdbc_study_teacher.dao.DeptEmpTransactionDaoImpl;
-import jdbc_study_teacher.dao.EmployeeDao;
-import jdbc_study_teacher.dao.EmployeeDaoImpl;
-import jdbc_study_teacher.dto.Department;
-import jdbc_study_teacher.dto.Employee;
+import jdbc_study.dao.DepartmentDao;
+import jdbc_study.dao.DepartmentDaoImpl;
+import jdbc_study.dao.DeptEmpTransactionDao;
+import jdbc_study.dao.DeptEmpTransactionDaoImpl;
+import jdbc_study.dao.EmployeeDao;
+import jdbc_study.dao.EmployeeDaoImpl;
+import jdbc_study.dto.Department;
+import jdbc_study.dto.Employee;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DeptEmpTransactionDaoImplTest {

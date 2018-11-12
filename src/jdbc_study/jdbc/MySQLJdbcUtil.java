@@ -11,7 +11,7 @@ public class MySQLJdbcUtil {
 
 	public static Connection getConnection() throws SQLException {
 		Connection conn = null;
-		try(InputStream is = ClassLoader.getSystemResourceAsStream("db.properties")){
+		try (InputStream is = ClassLoader.getSystemResourceAsStream("db.properties")) {
 			Properties properties = new Properties();
 			properties.load(is);
 			conn = DriverManager.getConnection(properties.getProperty("url"), properties);
