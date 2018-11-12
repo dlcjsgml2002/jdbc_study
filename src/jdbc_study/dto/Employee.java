@@ -1,7 +1,6 @@
 package jdbc_study.dto;
 
 public class Employee {
-
 	private int empNo;
 	private String empName;
 	private String title;
@@ -10,6 +9,7 @@ public class Employee {
 	private Department dept;
 
 	public Employee() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Employee(int empNo) {
@@ -75,8 +75,9 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return String.format("Employee [%s %s %s %s %s %s]", empNo, empName, title, getEmpNo(), salary,
-				dept.getDeptNo());
+		return String.format("Employee [%s %s %s %s %s %s]", 
+				empNo,empName, title, manager.getEmpNo(), salary, dept.getDeptNo());
 	}
 
+	
 }
