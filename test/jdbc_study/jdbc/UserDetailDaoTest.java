@@ -92,7 +92,7 @@ public class UserDetailDaoTest {
 		Assert.assertEquals(userDetail.getId(), searchUser.getId());
 	}
 
-ㄹ	@Test
+	@Test
 	public void test4DeleteUserDetail() throws FileNotFoundException, SQLException, IOException {
 		UserDetail userDetail = new UserDetail(1);
 		int result = dao.deleteUserDetail(userDetail);

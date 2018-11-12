@@ -34,7 +34,7 @@ public class EmpolyeeDaoTest {
 	}
 
 	@Test
-	public void test01SelectEmployeeByAll() {
+	public void test01SelectEmployeeByAll() throws SQLException {
 		List<Employee> list = dao.selectEmployeeByAll();
 		for (Employee empl : list) {
 			MySQLJdbcUtilTest.LOG.debug(empl);
