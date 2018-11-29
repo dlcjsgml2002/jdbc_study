@@ -16,6 +16,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import com.mysql.jdbc.log.LogUtils;
+
 import jdbc_study.dao.UserDetailDao;
 import jdbc_study.dao.UserDetailDaoImpl;
 import jdbc_study.dto.Gender;
